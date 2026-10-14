@@ -1,0 +1,93 @@
+.catalog {
+  font-family: var(--font-family-base);
+}
+
+.title {
+  margin: 2rem 0 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-dark-alt);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.filterLink {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(21, 21, 21, 0.2);
+  border-radius: 2rem;
+  color: var(--color-dark-alt);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: border-color var(--transition-duration), background var(--transition-duration);
+}
+
+.filterLink:hover {
+  border-color: var(--color-accent);
+}
+
+.filterLinkActive {
+  composes: filterLink;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-light);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(21, 21, 21, 0.08);
+  border-radius: 1rem;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow var(--transition-duration);
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1.5rem rgba(21, 21, 21, 0.12);
+}
+
+.cardImage {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--color-gray-alt);
+}
+
+.cardBody {
+  padding: 1rem;
+}
+
+.cardName {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.cardPrice {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.empty {
+  padding: 3rem 0;
+  text-align: center;
+  color: var(--color-dark);
+}

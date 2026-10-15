@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { apiPost, apiPut, ApiError } from "@/lib/admin/api";
+import { nextKey } from "@/lib/admin/id";
 import type { PageDto } from "@/lib/admin/types";
 
 const BLOCK_TYPES = [
@@ -64,7 +65,7 @@ function initState(initial?: PageDto): FormState {
     blocks: [...initial.blocks]
       .sort((a, b) => a.sortOrder - b.sortOrder)
       .map((b) => ({
-        key: crypto.randomUUID(),
+        key: nextKey(),
         type: b.type,
         contentText: JSON.stringify(b.content, null, 2),
       })),
@@ -106,7 +107,7 @@ export default function PageForm({ initial }: { initial?: PageDto }) {
   function addBlock() {
     setForm((prev) => ({
       ...prev,
-      blocks: [...prev.blocks, { key: crypto.randomUUID(), type: newBlockType, contentText: "{}" }],
+      blocks: [...prev.blocks, { key: nextKey(), type: newBlockType, contentText: "{}" }],
     }));
   }
 
